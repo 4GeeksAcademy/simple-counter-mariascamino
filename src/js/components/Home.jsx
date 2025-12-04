@@ -1,26 +1,18 @@
-import React from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-//create your first component
-const Home = () => {
+const Home = ({ seconds }) => {
+	const padded = seconds.toString().padStart(6, "0");
+	const digits = padded.split("");
 	return (
-		<div className="text-center">
-            
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="background-square">
+			 <div className="digit-box icon-box">
+<i className="fa-regular fa-clock"></i>
+      </div>
+			{digits.map((digit, index) => (
+				<div className="digit-box" key={index}>
+					{digit}
+				</div>
+			))}
 		</div>
 	);
 };
